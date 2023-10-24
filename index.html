@@ -65,6 +65,8 @@
    <div class="display">
     <input type="text" name="display">
    </div>
+   <button onclick="startSpeechRecognition()">Voice Input</button>
+
    <div>
     <input type="button" value="ac"  onclick="display.value = '' " class="operator">
     <input type="button" value="de"  onclick="display.value = display.value.toString().slice (0,-1)" class="operator">
@@ -101,6 +103,32 @@
 </div>
 
 
+
+
+
+
+<script>
+    function startSpeechRecognition() {
+        const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+        
+        recognition.lang = 'en-US';
+
+        recognition.onresult = function (event) {
+            const result = event.results[0][0].transcript;
+            document.getElementById('display').value = result;
+            calculate(); // Call your calculate function here or perform the desired action
+        };
+
+        recognition.start();
+    }
+
+    function calculate() {
+        // Add your calculation logic here
+        // For example, you can evaluate the expression in the display field
+        const displayValue = document.getElementById('display').value;
+        document.getElementById('display').value = eval(displayValue);
+    }
+</script>
 
 </body>
 </html>
