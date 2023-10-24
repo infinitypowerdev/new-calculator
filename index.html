@@ -117,15 +117,15 @@
             var result = event.results[0][0].transcript;
             document.getElementById('display').value = result;
             calculate(); // Call your calculate function here or perform the desired action
-        },2000;
+        },20000);
 
-        recognition.start();
+        recognition.start(voice input);
     }
 
     function calculate(input) {
         // Add your calculation logic here
         // For example, you can evaluate the expression in the display field
-        const displayValue = document.getElementById('display').value;
+        var displayValue = document.getElementById('display').value;
         document.getElementById('display').value = eval(displayValue);
     }
 </script>
