@@ -117,7 +117,7 @@
             const result = event.results[0][0].transcript;
             document.getElementById('display').value = result;
             calculate(); // Call your calculate function here or perform the desired action
-        };
+        },2000;
 
         recognition.start();
     }
