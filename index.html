@@ -109,12 +109,12 @@
 
 <script>
     function startSpeechRecognition() {
-        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+        var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
         
         recognition.lang = 'en-US';
 
         recognition.onresult = function (event) {
-            const result = event.results[0][0].transcript;
+            var result = event.results[0][0].transcript;
             document.getElementById('display').value = result;
             calculate(); // Call your calculate function here or perform the desired action
         },2000;
@@ -122,7 +122,7 @@
         recognition.start();
     }
 
-    function calculate() {
+    function calculate(input) {
         // Add your calculation logic here
         // For example, you can evaluate the expression in the display field
         const displayValue = document.getElementById('display').value;
